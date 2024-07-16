@@ -1,0 +1,6 @@
+<h1>Volunteers</h1>
+<ul>
+  <%= for volunteer <- @volunteers do %>   
+  <li><%= volunteer.name %> - <%= volunteer.email %></li>
+<% end %>
+</ul>

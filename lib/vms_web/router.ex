@@ -20,10 +20,14 @@ defmodule VmsWeb.Router do
     get "/", PageController, :home
   end
 
+
+
   # Other scopes may use custom stacks.
-  # scope "/api", VmsWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", VmsWeb do
+    pipe_through :api
+
+    resources "/volunteers", VolunteerController, except: [:new, :edit]
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:vms, :dev_routes) do
